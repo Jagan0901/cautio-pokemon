@@ -1,24 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import { Routes,Route } from 'react-router-dom';
+import { Home } from './Pages/Home';
+import { useTheme } from './Contexts/ThemeContext';
+import { useEffect } from 'react';
+import { Pokemons } from './Pages/Pokemons';
+import { LikedPokemons } from './Pages/LikedPokemons';
 
 function App() {
+
+  const { theme, toggleTheme } = useTheme();
+
+  useEffect(() => {
+    document.body.className = theme === "light" ? "light-mode" : "dark-mode";
+  }, [theme]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <ThemeProvider>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home theme={theme} toggleTheme={toggleTheme} />} />
+          <Route path="/game" element={<Pokemons theme={theme} toggleTheme={toggleTheme}/>} />
+        <Route path="/liked" element={<LikedPokemons theme={theme} toggleTheme={toggleTheme}/>} />
+        {/* <Route path="/user/dashboard" element={<Dashboard />} /> */}
+        </Routes>
+      </div>
+    // </ThemeProvider>
   );
 }
 
