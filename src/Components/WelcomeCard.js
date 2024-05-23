@@ -9,7 +9,7 @@ import { useRef, useState } from "react";
 
 export const WelcomeCard = ({ theme, toggleTheme, status,pokemons }) => {
   const navigate = useNavigate();
-  const [message, setMessage] = useState("")
+  // const [message, setMessage] = useState("")
 
   const swiperRef = useRef(null);
   var likedPokemon = [];
@@ -24,11 +24,11 @@ export const WelcomeCard = ({ theme, toggleTheme, status,pokemons }) => {
     console.log(likedPokemon);
    if(likedPokemon.length>0) {
     localStorage.setItem("liked-pokemon", JSON.stringify(likedPokemon))
-    setMessage("");
+    // setMessage("");
     navigate("/liked")
   
   }
-   else setMessage("You've to like atleast one pokemon")
+   else window.alert("You've to like atleast one pokemon")
   }
 
   const likeButton = {
@@ -167,7 +167,7 @@ export const WelcomeCard = ({ theme, toggleTheme, status,pokemons }) => {
         </div>
       </div>
      <button style={endButton} className="like-button" onClick={handleEndButton}>End Game</button>
-     <p style={{color:"red", fontWeight:"bold"}}>{message}</p>
+     {/* <p style={{color:"red", fontWeight:"bold"}}>{message}</p> */}
     </>
   );
 };
