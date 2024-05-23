@@ -14,16 +14,13 @@ function App() {
     document.body.className = theme === "light" ? "light-mode" : "dark-mode";
   }, [theme]);
   return (
-    // <ThemeProvider>
       <div className="App">
         <Routes>
           <Route path="/" element={<Home theme={theme} toggleTheme={toggleTheme} />} />
           <Route path="/game" element={<Pokemons theme={theme} toggleTheme={toggleTheme}/>} />
         <Route path="/liked" element={<LikedPokemons theme={theme} toggleTheme={toggleTheme}/>} />
-        {/* <Route path="/user/dashboard" element={<Dashboard />} /> */}
         </Routes>
       </div>
-    // </ThemeProvider>
   );
 }
 

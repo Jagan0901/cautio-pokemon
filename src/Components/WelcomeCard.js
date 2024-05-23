@@ -14,15 +14,6 @@ export const WelcomeCard = ({ theme, toggleTheme, status,pokemons }) => {
   const swiperRef = useRef(null);
   var likedPokemon = [];
 
-  const handleLikeClick = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slideNext();
-      // likedPokemon.push(pokemon);
-      // console.log(likedPokemon)
-    }
-    // likedPokemon.push(pokemon)
-  };
-
   const handleDisLikeClick = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slideNext();

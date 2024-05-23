@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 export const Pokemons = ({ theme, toggleTheme }) => {
   // const url = "https://pokeapi.co/api/v2/pokemon/?limit=50";
-  const url = "${id}";
 
   const [pokemonData, setPokemonData] = useState([]);
   const [loading, setLoading] = useState(true);
